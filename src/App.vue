@@ -17,21 +17,21 @@
       </div>
 
       <SyncfusionButton
-        css-class="curr-btn curr-btn-normal-filled-primary curr-icon-after-activity"
+        css-class="curr-btn curr-btn-normal-filled-primary curr-icon-after-add_to_list"
         @click.native="addTask"
         >Add Task</SyncfusionButton
       >
 
       <div class="manage-list">
         <SyncfusionButton
-          css-class="curr-btn curr-btn-normal-outlined-primary curr-icon-after-activity"
+          css-class="curr-btn curr-btn-normal-outlined-primary curr-icon-after-select"
           @click.native="toggleList"
           v-if="tasks.length > 0"
           >{{ listStatusCaption }}</SyncfusionButton
         >
 
         <SyncfusionButton
-          css-class="curr-btn curr-btn-normal-outlined-primary curr-icon-after-activity"
+          css-class="curr-btn curr-btn-normal-outlined-primary curr-icon-after-close_square"
           @click.native="clearList"
           v-if="tasks.length > 0"
           >Clear List</SyncfusionButton
@@ -122,7 +122,6 @@ export default {
 
 <style>
 @import 'currenda-generic-vue/src/styles/bapi.scss';
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 @font-face {
   font-family: 'cdsicon';
@@ -187,77 +186,10 @@ export default {
       margin: 0 0 1rem 0;
     }
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      list-style: none;
-      margin: 0.5rem 0;
-      padding: 0;
-    }
-
-    li {
-      margin: 5px;
-      font-size: 1.25rem;
-      // font-weight: bold;
-      background-color: var(--mainColor);
-      padding: 10px 10px 10px 50px;
-      color: white;
-      border-radius: 7px;
-
-      box-icon {
-        margin: 0;
-        vertical-align: bottom;
-        cursor: pointer;
-      }
-
-      .icon-done {
-        margin-left: 20px;
-      }
-    }
-
     .line {
       text-decoration: line-through;
       color: #ffa673;
     }
-
-    // input {
-    //   width: 30%;
-    //   padding: 5px;
-    //   font: inherit;
-    //   border: 1px solid #ccc;
-    //   border-radius: 5px;
-    // }
-
-    // input:focus {
-    //   outline: none;
-    //   border-color: var(--secondColor);
-    //   background-color: var(--secondColor);
-    // }
-
-    // button {
-    //   display: block;
-    //   margin: 10px auto;
-    //   font: inherit;
-    //   cursor: pointer;
-    //   border: 1px solid var(--mainColor);
-    //   border-radius: 5px;
-    //   background-color: var(--mainColor);
-    //   color: white;
-    //   padding: 5px 15px 7px;
-    //   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-
-    //   box-icon {
-    //     vertical-align: bottom;
-    //   }
-    // }
-
-    // button:hover,
-    // button:active {
-    //   background-color: var(--hoverColor);
-    //   border-color: var(--hoverColor);
-    //   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
-    // }
 
     .manage-list {
       display: flex;
