@@ -19,7 +19,6 @@
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
     "vue-router": "^3.4.3",
-    "boxicons": "^2.0.9",
     "currenda-generic-vue": "git+ssh://git@bitbucket.currenda.pl:7999/genst/vuejs.git"
   },
   "devDependencies": {

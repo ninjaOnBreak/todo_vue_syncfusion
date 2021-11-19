@@ -1,5 +1,5 @@
 <template>
-  <div id="app-to-do">
+  <div id="app-to-do-syncfusion">
     <header>
       <h1>Classic ToDo in Vue</h1>
     </header>
@@ -39,7 +39,7 @@
       </div>
 
       <ejs-grid
-        v-if="tasks.length > 0"
+        v-if="tasks.length > 0 && listStatusCaption === 'Hide List'"
         ref="grid"
         :dataSource="tasks"
         :editSettings="editSettings"
@@ -67,7 +67,7 @@ import {
 Vue.use(GridPlugin);
 
 export default {
-  name: 'AppToDo',
+  name: 'AppToDoSyncfusion',
   components: {
     SyncfusionTextBox,
     SyncfusionButton,
@@ -103,11 +103,6 @@ export default {
       }
     },
 
-    toggleDone(event) {
-      event.target.classList.toggle('line');
-      console.log(event);
-    },
-
     toggleList() {
       this.listStatusCaption =
         this.listStatusCaption === 'Hide List' ? 'Show List' : 'Hide List';
@@ -131,8 +126,45 @@ export default {
   font-weight: 400;
 }
 
+body {
+  height: auto;
+}
+
+.e-grid {
+  border-color: transparent;
+}
+
 .e-grid .e-gridheader {
   display: none;
+}
+
+.e-grid .e-toolbar,
+.e-grid .e-toolbar-items {
+  background-color: transparent;
+}
+
+.e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn.e-btn {
+  padding: 3px 6px;
+  border-radius: 5px;
+}
+
+.e-toolbar .e-tbar-btn.e-btn .e-icons,
+.e-toolbar .e-toolbar-items .e-toolbar-item .e-tbar-btn-text {
+  color: #d44108;
+}
+
+.e-toolbar .e-tbar-btn.e-btn:hover:not([disabled]) .e-icons,
+.e-toolbar
+  .e-toolbar-items
+  .e-toolbar-item:hover:not([disabled])
+  .e-tbar-btn-text {
+  color: #fff;
+}
+
+.e-btn:hover:not([disabled]) {
+  background-color: #d44108;
+  border-radius: 5px;
+  color: #fff;
 }
 </style>
 
@@ -143,7 +175,7 @@ export default {
   box-sizing: border-box;
 }
 
-#app-to-do {
+#app-to-do-syncfusion {
   --font: Roboto, sans-serif;
   --textColor: #374961;
   --mainColor: #d44108;
@@ -162,7 +194,7 @@ export default {
     border-radius: 10px;
     padding: 1rem;
     background-color: var(--mainColor);
-    color: white;
+    color: var(--secondColor);
     text-align: center;
   }
 
@@ -181,14 +213,8 @@ export default {
 
     h2 {
       font-size: 1.3rem;
-      // border-bottom: 3px solid #ccc;
       color: var(--mainColor);
       margin: 0 0 1rem 0;
-    }
-
-    .line {
-      text-decoration: line-through;
-      color: #ffa673;
     }
 
     .manage-list {
